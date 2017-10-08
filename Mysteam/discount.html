@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#search").click( function () {
+                $.get("handles/GetDiscount.ashx", { id: $("#input").val() },
+                    function (data) {
+                        $("#result").text(data);
+                    });
+            });
+
+
+
+            $("#search2").click(function () {
+                $.get("handles/GetScore.ashx", { no: $("#input2").val() },
+                    function (data) {
+                        $("#result2").text(data);
+                    });
+            });
+
+
+
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <input  id="input" type="text" name="name" value=" " />
+    <button id="search">搜索</button>
+    <span id="result"></span>
+
+    <input id="input2" type="text" name="name" value=" " />
+    <button id="search2">搜索</button>
+    <span id="result2"></span>
+
+
+
+</body>
+</html>
